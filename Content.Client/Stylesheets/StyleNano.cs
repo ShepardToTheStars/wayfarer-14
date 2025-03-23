@@ -734,6 +734,11 @@ namespace Content.Client.Stylesheets
                     .Prop(ContainerButton.StylePropertyStyleBox, BaseButtonOpenRight),
 
                 Element<ContainerButton>().Class(ContainerButton.StyleClassButton)
+                    .Class(ButtonOpenRightSelected)
+                    .Prop(ContainerButton.StylePropertyStyleBox, BaseButtonOpenRight)
+                    .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodDefault),
+
+                Element<ContainerButton>().Class(ContainerButton.StyleClassButton)
                     .Class(ButtonOpenLeft)
                     .Prop(ContainerButton.StylePropertyStyleBox, BaseButtonOpenLeft),
 
@@ -1977,9 +1982,19 @@ namespace Content.Client.Stylesheets
                         new StyleProperty(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/Interface/Bwoink/un_pinned.png"))
                     }),
 
-                Element<PanelContainer>()
-                    .Class(StyleClassInset)
-                    .Prop(PanelContainer.StylePropertyPanel, insetBack),
+                // Add the style rule for OpenRightSelected
+                Element<Button>().Class(ButtonOpenRightSelected)
+                    .Prop(ContainerButton.StylePropertyStyleBox, new StyleBoxTexture(BaseButtonOpenRight)
+                    {
+                        Modulate = ButtonColorGoodDefault
+                    }),
+
+                // Add the style rule for OpenBothSelected
+                Element<Button>().Class(ButtonOpenBothSelected)
+                    .Prop(ContainerButton.StylePropertyStyleBox, new StyleBoxTexture(BaseButtonOpenBoth)
+                    {
+                        Modulate = ButtonColorGoodDefault
+                    }),
             }).ToList());
         }
     }
