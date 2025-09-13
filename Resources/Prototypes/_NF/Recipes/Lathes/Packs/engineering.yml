@@ -84,7 +84,7 @@
   recipes:
   - GasMiningDrillMachineCircuitboard
   - GaslockFrameMachineCircuitboard
-  - GaslockBigFrameMachineCircuitboard
+#  - GaslockBigFrameMachineCircuitboard
 
 - type: latheRecipePack
   id: NFEngineering
