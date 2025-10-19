@@ -43,6 +43,7 @@
     components:
       - type: CommandStaff
       - type: PreventShipyardTitleOverwrite
+      - type: CoolSheriff
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
@@ -60,6 +61,8 @@
     - DoorRemoteNfsd
     - BaseSecurityUplinkRadioSheriff
     - RubberStampSheriff
+    - ShipVoucherNfsdBailiff
+    - FrontierUplinkCoin5
 
 - type: chameleonOutfit
   id: SheriffChameleonOutfit
