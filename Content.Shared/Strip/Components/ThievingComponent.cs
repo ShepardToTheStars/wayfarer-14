@@ -35,6 +35,18 @@ public sealed partial class ThievingComponent : Component
     /// Get mogged.
     /// </summary>
     public override bool SendOnlyToOwner => true;
+
+    /// <summary>
+    /// Mono: Multiplies the strip time.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float TimeMultiplier = 1f;
+
+    /// <summary>
+    /// Mono: If true, this entity can identify hidden strip slots.
+    /// </summary>
+    [AutoNetworkedField]
+    public bool IdentifyHidden;
 }
 
 /// <summary>

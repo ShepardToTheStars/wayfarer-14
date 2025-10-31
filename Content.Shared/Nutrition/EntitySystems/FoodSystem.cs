@@ -1,10 +1,11 @@
 using System.Linq;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Nutrition.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
@@ -18,16 +19,15 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Storage;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
 
+using Content.Shared._Mono.Traits.Physical;
 namespace Content.Shared.Nutrition.EntitySystems;
 
 /// <summary>
@@ -184,9 +184,16 @@ public sealed class FoodSystem : EntitySystem
             _adminLogger.Add(LogType.Ingestion, LogImpact.Low, $"{ToPrettyString(target):target} is eating {ToPrettyString(food):food} {SharedSolutionContainerSystem.ToPrettyString(foodSolution)}");
         }
 
+        var delay = forceFeed ? foodComp.ForceFeedDelay : foodComp.Delay;
+
+        // Mono
+        if (TryComp<VoraciousComponent>(user, out var voracious))
+        {
+            delay /= voracious.ConsumptionSpeedMultiplier;
+        }
         var doAfterArgs = new DoAfterArgs(EntityManager,
             user,
-            forceFeed ? foodComp.ForceFeedDelay : foodComp.Delay,
+            delay,
             new ConsumeDoAfterEvent(foodComp.Solution, flavors),
             eventTarget: food,
             target: target,

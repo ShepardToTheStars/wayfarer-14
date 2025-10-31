@@ -1,3 +1,4 @@
+using Content.Shared._Mono.Traits.Physical;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
@@ -190,9 +191,17 @@ public abstract partial class SharedDrinkSystem : EntitySystem
 
         var flavors = _flavorProfile.GetLocalizedFlavorsMessage(user, drinkSolution);
 
+        // Mono
+        var delay = forceDrink ? drink.ForceFeedDelay : drink.Delay;
+        if (TryComp<VoraciousComponent>(user, out var voracious))
+        {
+            delay /= voracious.ConsumptionSpeedMultiplier;
+        }
+        // END Mono
+
         var doAfterEventArgs = new DoAfterArgs(EntityManager,
             user,
-            forceDrink ? drink.ForceFeedDelay : drink.Delay,
+            delay,
             new ConsumeDoAfterEvent(drink.Solution, flavors),
             eventTarget: item,
             target: target,
