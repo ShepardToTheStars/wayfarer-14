@@ -16,9 +16,11 @@ public abstract partial class SharedConsentSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<MindContainerComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
+        // Commented out - replaced by Character examine button
+        // SubscribeLocalEvent<MindContainerComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
     }
 
+    /* Commented out - replaced by Character examine button
     private void OnGetExamineVerbs(Entity<MindContainerComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
         if (_mindSystem.GetMind(ent, ent) is not { } mind
@@ -50,6 +52,7 @@ public abstract partial class SharedConsentSystem : EntitySystem
             CloseMenu = true,
         });
     }
+    */
 
     protected virtual FormattedMessage GetConsentText(NetUserId userId)
     {
