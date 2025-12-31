@@ -16,7 +16,7 @@ using NpgsqlTypes;
 namespace Content.Server.Database.Migrations.Postgres
 {
     [DbContext(typeof(PostgresServerDbContext))]
-    [Migration("20251231004455_WayfarerRoundSummaries")]
+    [Migration("20251231010026_WayfarerRoundSummaries")]
     partial class WayfarerRoundSummaries
     {
         /// <inheritdoc />

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    [Migration("20251231004541_WayfarerRoundSummaries")]
+    [Migration("20251230234037_WayfarerRoundSummaries")]
     partial class WayfarerRoundSummaries
     {
         /// <inheritdoc />
