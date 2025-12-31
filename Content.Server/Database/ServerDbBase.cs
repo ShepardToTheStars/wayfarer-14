@@ -199,6 +199,20 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
         }
 
+        // Wayfarer (NEW) - Get the database profile ID for a user's character slot
+        public async Task<int?> GetProfileIdAsync(NetUserId userId, int slot)
+        {
+            await using var db = await GetDb();
+            
+            var profile = await db.DbContext.Profile
+                .Include(p => p.Preference)
+                .Where(p => p.Preference.UserId == userId.UserId && p.Slot == slot)
+                .Select(p => p.Id)
+                .FirstOrDefaultAsync();
+                
+            return profile == 0 ? null : profile;
+        }
+
         private static async Task SetSelectedCharacterSlotAsync(NetUserId userId, int newSlot, ServerDbContext db)
         {
             var prefs = await db.Preference.SingleAsync(p => p.UserId == userId.UserId);
