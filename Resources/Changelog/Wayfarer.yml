@@ -138,3 +138,10 @@ Entries:
   id: 6507
   time: '2026-01-01T18:21:57.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/97
+- author: RobynIsBlue
+  changes:
+    - type: Fix
+      message: Resomi clothing sprites
+  id: 6508
+  time: '2026-01-01T20:23:10.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/95
