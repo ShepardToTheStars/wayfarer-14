@@ -48,6 +48,8 @@ namespace Content.Server.Database
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
         public DbSet<WayfarerRoundSummary> WayfarerRoundSummaries { get; set; } = null!;
+        public DbSet<WayfarerSafetyDepositBox> WayfarerSafetyDepositBox { get; set; } = null!;
+        public DbSet<WayfarerSafetyDepositBoxItem> WayfarerSafetyDepositBoxItem { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -383,6 +385,23 @@ namespace Content.Server.Database
                 .OwnsOne(p => p.HWId)
                 .Property(p => p.Type)
                 .HasDefaultValue(HwidType.Legacy);
+
+            // Wayfarer Safety Deposit Box configuration
+            modelBuilder.Entity<WayfarerSafetyDepositBox>()
+                .HasIndex(b => b.BoxId)
+                .IsUnique();
+
+            modelBuilder.Entity<WayfarerSafetyDepositBox>()
+                .HasIndex(b => b.OwnerUserId);
+
+            modelBuilder.Entity<WayfarerSafetyDepositBoxItem>()
+                .HasOne(i => i.Box)
+                .WithMany(b => b.Items)
+                .HasForeignKey(i => i.BoxId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<WayfarerSafetyDepositBoxItem>()
+                .HasIndex(i => i.BoxId);
         }
 
         public virtual IQueryable<AdminLog> SearchLogs(IQueryable<AdminLog> query, string searchText)
