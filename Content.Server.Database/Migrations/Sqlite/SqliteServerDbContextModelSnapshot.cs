@@ -846,6 +846,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
 
+                    b.Property<string>("Customspeciesname")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("customspeciesname");
+
                     b.Property<string>("EyeColor")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -880,6 +885,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("hair_name");
+
+                    b.Property<bool>("HideFromPlayerlist")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("hide_from_playerlist");
 
                     b.Property<byte[]>("Markings")
                         .HasColumnType("jsonb")
@@ -1389,6 +1398,39 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasName("PK_uploaded_resource_log");
 
                     b.ToTable("uploaded_resource_log", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.WayfarerRoundSummary", b =>
+                {
+                    b.Property<int>("RoundNumber")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("round_number");
+
+                    b.Property<byte[]>("PlayerManifest")
+                        .HasColumnType("jsonb")
+                        .HasColumnName("player_manifest");
+
+                    b.Property<byte[]>("PlayerStories")
+                        .HasColumnType("jsonb")
+                        .HasColumnName("player_stories");
+
+                    b.Property<byte[]>("ProfitLossData")
+                        .HasColumnType("jsonb")
+                        .HasColumnName("profit_loss_data");
+
+                    b.Property<DateTime>("RoundEndTime")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("round_end_time");
+
+                    b.Property<DateTime>("RoundStartTime")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("round_start_time");
+
+                    b.HasKey("RoundNumber")
+                        .HasName("PK_wayfarer_round_summaries");
+
+                    b.ToTable("wayfarer_round_summaries", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.WayfarerSafetyDepositBox", b =>

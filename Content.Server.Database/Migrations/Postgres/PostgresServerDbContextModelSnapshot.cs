@@ -899,6 +899,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("char_name");
 
+                    b.Property<string>("Customspeciesname")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("customspeciesname");
+
                     b.Property<string>("EyeColor")
                         .IsRequired()
                         .HasColumnType("text")
@@ -933,6 +938,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("hair_name");
+
+                    b.Property<bool>("HideFromPlayerlist")
+                        .HasColumnType("boolean")
+                        .HasColumnName("hide_from_playerlist");
 
                     b.Property<JsonDocument>("Markings")
                         .HasColumnType("jsonb")
@@ -1470,6 +1479,41 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasName("PK_uploaded_resource_log");
 
                     b.ToTable("uploaded_resource_log", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.WayfarerRoundSummary", b =>
+                {
+                    b.Property<int>("RoundNumber")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("round_number");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("RoundNumber"));
+
+                    b.Property<JsonDocument>("PlayerManifest")
+                        .HasColumnType("jsonb")
+                        .HasColumnName("player_manifest");
+
+                    b.Property<JsonDocument>("PlayerStories")
+                        .HasColumnType("jsonb")
+                        .HasColumnName("player_stories");
+
+                    b.Property<JsonDocument>("ProfitLossData")
+                        .HasColumnType("jsonb")
+                        .HasColumnName("profit_loss_data");
+
+                    b.Property<DateTime>("RoundEndTime")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("round_end_time");
+
+                    b.Property<DateTime>("RoundStartTime")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("round_start_time");
+
+                    b.HasKey("RoundNumber")
+                        .HasName("PK_wayfarer_round_summaries");
+
+                    b.ToTable("wayfarer_round_summaries", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.WayfarerSafetyDepositBox", b =>

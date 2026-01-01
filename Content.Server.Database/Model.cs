@@ -47,6 +47,7 @@ namespace Content.Server.Database
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
+        public DbSet<WayfarerRoundSummary> WayfarerRoundSummaries { get; set; } = null!;
         public DbSet<WayfarerSafetyDepositBox> WayfarerSafetyDepositBox { get; set; } = null!;
         public DbSet<WayfarerSafetyDepositBoxItem> WayfarerSafetyDepositBoxItem { get; set; } = null!;
 
@@ -437,6 +438,7 @@ namespace Content.Server.Database
         public string Sex { get; set; } = null!;
         public string Gender { get; set; } = null!;
         public string Species { get; set; } = null!;
+        public string Customspeciesname { get; set; } = null!;
         [Column(TypeName = "jsonb")] public JsonDocument? Markings { get; set; } = null!;
         public string HairName { get; set; } = null!;
         public string HairColor { get; set; } = null!;
@@ -445,6 +447,7 @@ namespace Content.Server.Database
         public string EyeColor { get; set; } = null!;
         public string SkinColor { get; set; } = null!;
         public int SpawnPriority { get; set; } = 0;
+        public bool HideFromPlayerlist { get; set; } = false; // Wayfarer
         public List<Job> Jobs { get; } = new();
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
@@ -1380,6 +1383,49 @@ namespace Content.Server.Database
         /// The score IPIntel returned
         /// </summary>
         public float Score { get; set; }
+    }
+
+    // Wayfarer Round Summary Table
+    public class WayfarerRoundSummary
+    {
+        /// <summary>
+        /// Round number - primary key
+        /// </summary>
+        [Key]
+        public int RoundNumber { get; set; }
+
+        /// <summary>
+        /// When the round started
+        /// </summary>
+        [Required]
+        public DateTime RoundStartTime { get; set; }
+
+        /// <summary>
+        /// When the round ended
+        /// </summary>
+        [Required]
+        public DateTime RoundEndTime { get; set; }
+
+        /// <summary>
+        /// Player profit/loss data stored as JSON array
+        /// Expected format: [{"username": "player1", "characterName": "char1", "profitLoss": 1000}, ...]
+        /// </summary>
+        [Column(TypeName = "jsonb")]
+        public JsonDocument? ProfitLossData { get; set; }
+
+        /// <summary>
+        /// Player stories stored as JSON array
+        /// Expected format: [{"username": "player1", "story": "text"}, ...]
+        /// </summary>
+        [Column(TypeName = "jsonb")]
+        public JsonDocument? PlayerStories { get; set; }
+
+        /// <summary>
+        /// Player manifest stored as JSON array
+        /// Expected format: [{"username": "user1", "characterName": "char1", "role": "role1"}, ...]
+        /// </summary>
+        [Column(TypeName = "jsonb")]
+        public JsonDocument? PlayerManifest { get; set; }
     }
 
     // Wayfarer Safety Deposit Box Tables

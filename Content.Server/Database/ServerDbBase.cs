@@ -199,6 +199,20 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
         }
 
+        // Wayfarer (NEW) - Get the database profile ID for a user's character slot
+        public async Task<int?> GetProfileIdAsync(NetUserId userId, int slot)
+        {
+            await using var db = await GetDb();
+            
+            var profile = await db.DbContext.Profile
+                .Include(p => p.Preference)
+                .Where(p => p.Preference.UserId == userId.UserId && p.Slot == slot)
+                .Select(p => p.Id)
+                .FirstOrDefaultAsync();
+                
+            return profile == 0 ? null : profile;
+        }
+
         private static async Task SetSelectedCharacterSlotAsync(NetUserId userId, int newSlot, ServerDbContext db)
         {
             var prefs = await db.Preference.SingleAsync(p => p.UserId == userId.UserId);
@@ -267,6 +281,7 @@ namespace Content.Server.Database
                 profile.CharacterName,
                 profile.FlavorText,
                 profile.Species,
+                profile.Customspeciesname,
                 profile.Age,
                 sex,
                 gender,
@@ -286,7 +301,8 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
+                loadouts,
+                profile.HideFromPlayerlist // Wayfarer
             );
         }
 
@@ -304,6 +320,7 @@ namespace Content.Server.Database
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
             profile.Species = humanoid.Species;
+            profile.Customspeciesname = humanoid.Customspeciesname;
             profile.Age = humanoid.Age;
             profile.Sex = humanoid.Sex.ToString();
             profile.Gender = humanoid.Gender.ToString();
@@ -315,6 +332,7 @@ namespace Content.Server.Database
             profile.EyeColor = appearance.EyeColor.ToHex();
             profile.SkinColor = appearance.SkinColor.ToHex();
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
+            profile.HideFromPlayerlist = humanoid.HideFromPlayerlist; // Wayfarer
             profile.Markings = markings;
             profile.Slot = slot;
             profile.PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable;
@@ -1972,6 +1990,34 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
             await db.DbContext.SaveChangesAsync();
             return true;
+        }
+
+        #endregion
+
+        #region Wayfarer Round Summaries
+
+        public async Task AddWayfarerRoundSummary(
+            int roundNumber,
+            DateTime roundStartTime,
+            DateTime roundEndTime,
+            JsonDocument? profitLossData,
+            JsonDocument? playerStories,
+            JsonDocument? playerManifest)
+        {
+            await using var db = await GetDb();
+
+            var summary = new WayfarerRoundSummary
+            {
+                RoundNumber = roundNumber,
+                RoundStartTime = NormalizeDatabaseTime(roundStartTime),
+                RoundEndTime = NormalizeDatabaseTime(roundEndTime),
+                ProfitLossData = profitLossData,
+                PlayerStories = playerStories,
+                PlayerManifest = playerManifest
+            };
+
+            db.DbContext.WayfarerRoundSummaries.Add(summary);
+            await db.DbContext.SaveChangesAsync();
         }
 
         #endregion

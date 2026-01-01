@@ -80,3 +80,93 @@ Entries:
   id: 6500
   time: '2025-12-30T02:51:35.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/57
+- author: RoY7x
+  changes:
+    - type: Add
+      message: Moth Hair
+  id: 6501
+  time: '2025-12-30T06:04:42.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/26
+- author: RoY7x
+  changes:
+    - type: Add
+      message: >-
+        The chat bubble indicators from Delta V. Now you can see what type of
+        chat a person is doing at a glance. Super useful!
+  id: 6502
+  time: '2025-12-30T06:12:27.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/87
+- author: drraccoony
+  changes:
+    - type: Add
+      message: >-
+        Storing of round end summaries to the database for later fetching or
+        access from web resources
+  id: 6503
+  time: '2025-12-31T00:33:14.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/89
+- author: drraccoony
+  changes:
+    - type: Fix
+      message: 'Double emoting sound bug '
+  id: 6504
+  time: '2025-12-31T04:14:35.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/91
+- author: drraccoony
+  changes:
+    - type: Tweak
+      message: >-
+        Admins are players too! By default, admins will count towards player
+        counts.
+  id: 6505
+  time: '2025-12-31T04:14:45.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/92
+- author: drraccoony
+  changes:
+    - type: Add
+      message: >-
+        Character API Endpoint. Allows external sources, like a website, to show
+        which characters are currently playing, along with the option for
+        players to opt-out on the character setup screen.
+  id: 6506
+  time: '2025-12-31T23:46:54.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/94
+- author: drraccoony
+  changes:
+    - type: Add
+      message: Custom Species.
+  id: 6507
+  time: '2026-01-01T18:21:57.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/97
+- author: RobynIsBlue
+  changes:
+    - type: Fix
+      message: Resomi clothing sprites
+  id: 6508
+  time: '2026-01-01T20:23:10.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/95
+- author: RoY7x
+  changes:
+    - type: Add
+      message: The AAC tablet from DeltaV's server
+    - type: Tweak
+      message: >-
+        Added the updates that Coyote used to make the AAC Tablet more useable
+        to a Frontier fork
+  id: 6509
+  time: '2026-01-01T20:30:32.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/96
+- author: drraccoony
+  changes:
+    - type: Add
+      message: Undock All button on shuttles. QOL cherrypick from Monolith.
+  id: 6510
+  time: '2026-01-01T20:31:10.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/99
+- author: drraccoony
+  changes:
+    - type: Tweak
+      message: Airlock Sounds changed (Ported from Monolith)
+  id: 6511
+  time: '2026-01-01T21:42:09.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/100
