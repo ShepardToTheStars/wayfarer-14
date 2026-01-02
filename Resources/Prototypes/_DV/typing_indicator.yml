@@ -23,7 +23,7 @@
   id: rodentia
   spritePath: /Textures/_DV/Effects/speech.rsi
   typingState: rodentia0
-  idleState: paper0
+  idleState: rodentia1
   offset: 0, 0.2 # 0625
 
 - type: typingIndicator
@@ -66,3 +66,10 @@
   typingState: radio0
   idleState: radio1
   offset: -0.05, 0.1
+
+- type: typingIndicator
+  id: Chitinid
+  spritePath: /Textures/_DV/Effects/speech.rsi
+  typingState: chitinid0
+  idleState: chitinid1
+  offset: -0.2, 0.1 # 0625
