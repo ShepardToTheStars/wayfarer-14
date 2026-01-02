@@ -179,3 +179,10 @@ Entries:
   id: 6512
   time: '2026-01-01T23:00:25.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/90
+- author: RoY7x
+  changes:
+    - type: Add
+      message: Chitnids from DeltaV
+  id: 6513
+  time: '2026-01-02T02:01:56.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/98
