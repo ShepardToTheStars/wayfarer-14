@@ -232,3 +232,10 @@ Entries:
   id: 6519
   time: '2026-01-03T04:15:01.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/113
+- author: drraccoony
+  changes:
+    - type: Add
+      message: Gas Tank Warning Notifications (Ported from CS)
+  id: 6520
+  time: '2026-01-03T05:05:03.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/116
