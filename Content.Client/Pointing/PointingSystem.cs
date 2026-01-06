@@ -4,15 +4,16 @@ using Content.Shared.Verbs;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
+using Robust.Shared.Configuration;
+using Content.Shared.CCVar;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Client.Pointing;
 
-[Dependency] private readonly IConfigurationManager _cfg = default!; // Wayfarer
-
 public sealed partial class PointingSystem : SharedPointingSystem
 {
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Wayfarer
 
     public override void Initialize()
     {
