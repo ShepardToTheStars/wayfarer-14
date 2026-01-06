@@ -43,7 +43,6 @@
     components:
       - type: CommandStaff
       - type: PreventShipyardTitleOverwrite
-      - type: CoolSheriff
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
