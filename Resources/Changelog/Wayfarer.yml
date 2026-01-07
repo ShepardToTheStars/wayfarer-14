@@ -372,3 +372,38 @@ Entries:
   id: 6535
   time: '2026-01-07T17:33:44.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/161
+- author: drraccoony
+  changes:
+    - type: Add
+      message: Tabs for each major bounty category.
+    - type: Add
+      message: Tabs will display the number of bounties listed in each category.
+    - type: Add
+      message: 4 new major bounty categories.
+    - type: Add
+      message: Many new bounty types.
+    - type: Add
+      message: Bounties can now have a title and contact info.
+    - type: Add
+      message: >-
+        Bounties will now automatically select the current user's name for
+        non-criminal bounties.
+    - type: Tweak
+      message: >-
+        Title is now displayed at the top instead of name. If title is blank,
+        Name will be used instead as before.
+    - type: Tweak
+      message: Bounties will now show an indicator when the poster is offline.
+    - type: Tweak
+      message: Bounties will now show the time since it was posted.
+    - type: Tweak
+      message: Updated formatting of bounty creation to streamline the process.
+    - type: Tweak
+      message: Updated formatting of bounty list to include new info.
+    - type: Remove
+      message: >-
+        Bounties will no longer display the poster's true name, except to
+        SR/Sheriff
+  id: 6536
+  time: '2026-01-07T18:20:14.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/153
