@@ -17,6 +17,8 @@
 - type: speciesBaseSprites
   id: MobVoxSprites
   sprites:
+    TailBehind: MobHumanoidAnyMarking
+    TailOversuit: MobHumanoidAnyMarking
     Head: MobVoxHead
     Snout: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
@@ -61,10 +63,10 @@
       required: true
       defaultMarkings: [ VoxLLegScales, VoxRLegScales, VoxRFootScales, VoxLFootScales ]
     UndergarmentTop:
-      points: 1
+      points: 3
       required: false
     UndergarmentBottom:
-      points: 1
+      points: 3
       required: false
     Chest:
       points: 2
