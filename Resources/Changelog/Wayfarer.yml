@@ -464,3 +464,12 @@ Entries:
   id: 6543
   time: '2026-01-10T18:05:10.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/189
+- author: drraccoony
+  changes:
+    - type: Add
+      message: Advanced Collar
+    - type: Add
+      message: Two modules for the advanced collar (Bondage and Shock)
+  id: 6544
+  time: '2026-01-10T19:13:08.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/191
