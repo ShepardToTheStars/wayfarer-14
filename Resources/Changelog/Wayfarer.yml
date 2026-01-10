@@ -441,3 +441,10 @@ Entries:
   id: 6540
   time: '2026-01-07T17:18:21.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/154
+- author: Eillyrea
+  changes:
+    - type: Add
+      message: Mention Sound for LOOC and Subtle messages that can be toggled on/off
+  id: 6541
+  time: '2026-01-07T19:08:29.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/159
