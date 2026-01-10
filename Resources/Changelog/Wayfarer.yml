@@ -407,3 +407,16 @@ Entries:
   id: 6536
   time: '2026-01-07T18:20:14.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/153
+- author: anpage
+  changes:
+    - type: Add
+      message: Ported support for more sophisticated tail layering
+    - type: Add
+      message: Ported tons of parts like tails, ears, snouts, etc.
+    - type: Add
+      message: Added support for multiple layers of undergarments
+    - type: Add
+      message: Added the ability to remove individual undergarment markings
+  id: 6537
+  time: '2026-01-09T22:25:58.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/186
