@@ -473,3 +473,10 @@ Entries:
   id: 6544
   time: '2026-01-10T19:13:08.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/191
+- author: RobynIsBlue
+  changes:
+    - type: Add
+      message: Custom ambigen sounds
+  id: 6545
+  time: '2026-01-10T19:13:52.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/192
