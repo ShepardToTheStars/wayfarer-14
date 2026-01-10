@@ -407,3 +407,60 @@ Entries:
   id: 6536
   time: '2026-01-07T18:20:14.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/153
+- author: anpage
+  changes:
+    - type: Add
+      message: Ported support for more sophisticated tail layering
+    - type: Add
+      message: Ported tons of parts like tails, ears, snouts, etc.
+    - type: Add
+      message: Added support for multiple layers of undergarments
+    - type: Add
+      message: Added the ability to remove individual undergarment markings
+  id: 6537
+  time: '2026-01-09T22:25:58.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/186
+- author: Eillyrea
+  changes:
+    - type: Add
+      message: IFF Search to Mass Scanner
+  id: 6538
+  time: '2026-01-07T16:26:25.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/157
+- author: Eillyrea
+  changes:
+    - type: Add
+      message: NFSD eSword, an advanced stunbaton
+  id: 6539
+  time: '2026-01-07T16:27:58.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/155
+- author: RobynIsBlue
+  changes:
+    - type: Tweak
+      message: Changed Frontier Station decal
+  id: 6540
+  time: '2026-01-07T17:18:21.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/154
+- author: Eillyrea
+  changes:
+    - type: Add
+      message: Mention Sound for LOOC and Subtle messages that can be toggled on/off
+  id: 6541
+  time: '2026-01-07T19:08:29.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/159
+- author: drraccoony
+  changes:
+    - type: Tweak
+      message: Lobby background
+    - type: Tweak
+      message: Lobby music
+  id: 6542
+  time: '2026-01-10T06:39:48.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/188
+- author: drraccoony
+  changes:
+    - type: Add
+      message: Ported Bondage Gear
+  id: 6543
+  time: '2026-01-10T18:05:10.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/189
