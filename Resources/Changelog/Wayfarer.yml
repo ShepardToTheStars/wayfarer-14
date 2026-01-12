@@ -532,3 +532,10 @@ Entries:
   id: 6549
   time: '2026-01-12T01:22:46.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/198
+- author: drraccoony
+  changes:
+    - type: Tweak
+      message: Subtle chat casing adjustments so Willow can roleplay harder and faster.
+  id: 6550
+  time: '2026-01-12T05:38:56.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/202
