@@ -36,6 +36,7 @@ using Content.Shared.Standing;
 using Content.Server.Power.Components;
 using Content.Shared.PowerCell;
 using Content.Server.Nutrition.EntitySystems;
+using Content.Shared.Mind.Components;
 
 namespace Content.Server.FloofStation;
 
@@ -93,6 +94,7 @@ public sealed class VoreSystem : EntitySystem
             || args.User == args.Target
             || !HasComp<VoreComponent>(args.Target)
             || !_consent.HasConsent(args.Target, "Vore")
+            || !_consent.HasConsent(args.User, "Vore")
             || HasComp<VoredComponent>(args.User))
             return;
 
@@ -111,6 +113,32 @@ public sealed class VoreSystem : EntitySystem
     {
         if (args.User != args.Target)
             return;
+
+        // Add toggle for showing examine text
+        if (component.ShowOnExamine)
+        {
+            InnateVerb verbHideExamine = new()
+            {
+                Act = () => component.ShowOnExamine = false,
+                Text = Loc.GetString("vore-show-examine-on"),
+                Category = VerbCategory.Vore,
+                Priority = 0,
+                Message = "Will show to bystanders examine text that suggests you've consumed people"
+            };
+            args.Verbs.Add(verbHideExamine);
+        }
+        else
+        {
+            InnateVerb verbShowExamine = new()
+            {
+                Act = () => component.ShowOnExamine = true,
+                Text = Loc.GetString("vore-show-examine-off"),
+                Category = VerbCategory.Vore,
+                Priority = 0,
+                Message = "Will show to bystanders examine text that suggests you've consumed people"
+            };
+            args.Verbs.Add(verbShowExamine);
+        }
 
         foreach (var prey in component.Stomach.ContainedEntities)
         {
@@ -372,10 +400,18 @@ public sealed class VoreSystem : EntitySystem
                 sessionprey.Channel);
         }
 
-        if (TryComp<InventoryComponent>(prey, out var inventoryComponent) && _inventorySystem.TryGetSlots(uid, out var slots))
+        if (TryComp<InventoryComponent>(prey, out var inventoryComponent)
+            && _inventorySystem.TryGetSlots(prey, out var slots)
+            && TryComp<MindContainerComponent>(prey, out var mindContainer)
+            && mindContainer.HasMind) // no more digesting wizards to get their panties
+        {
             foreach (var slot in slots)
             {
-                if (_inventorySystem.TryGetSlotEntity(prey, slot.Name, out var item, inventoryComponent))
+                if (_inventorySystem.TryGetSlotEntity(
+                        prey,
+                        slot.Name,
+                        out var item,
+                        inventoryComponent))
                 {
                     // if (TryComp<DnaComponent>(uid, out var dna))
                     // {
@@ -386,6 +422,7 @@ public sealed class VoreSystem : EntitySystem
                     _transform.AttachToGridOrMap(item.Value);
                 }
             }
+        }
 
         if (TryComp<VoreComponent>(prey, out var preyvore))
             _containerSystem.EmptyContainer(preyvore.Stomach);
@@ -397,6 +434,10 @@ public sealed class VoreSystem : EntitySystem
     {
         if (!_containerSystem.TryGetContainer(uid, "stomach", out var stomach)
             || stomach.ContainedEntities.Count < 1)
+            return;
+
+        // Check if the entity being examined has ShowOnExamine enabled
+        if (!TryComp<VoreComponent>(uid, out var voreComp) || !voreComp.ShowOnExamine)
             return;
 
         args.PushMarkup(Loc.GetString("vore-examine", ("count", stomach.ContainedEntities.Count)), -1);
