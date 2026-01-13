@@ -226,7 +226,7 @@
   # HardsuitsExperimentalIndustrial
   - ClothingOuterHardsuitMaximPrototype
 
-# region NFSD
+# region CGP
 - type: latheRecipePack
   id: NFBlueprintsNfsd
   recipes:
@@ -431,7 +431,7 @@
 #               #
 #################
 
-# region Merc & NFSD
+# region Merc & CGP
 - type: latheRecipePack
   id: NFBlueprintsMercenaryNfsd
   recipes:
