@@ -562,3 +562,10 @@ Entries:
   id: 6553
   time: '2026-01-13T18:19:06.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/218
+- author: drraccoony
+  changes:
+    - type: Add
+      message: Shift time remaining in PDA
+  id: 6554
+  time: '2026-01-13T18:20:04.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/204
