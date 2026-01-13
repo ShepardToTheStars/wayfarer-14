@@ -555,3 +555,10 @@ Entries:
   id: 6552
   time: '2026-01-13T17:38:21.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/219
+- author: drraccoony
+  changes:
+    - type: Tweak
+      message: Changed cyro so your characters wont get deleted, and jobs reopen.
+  id: 6553
+  time: '2026-01-13T18:19:06.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/218
