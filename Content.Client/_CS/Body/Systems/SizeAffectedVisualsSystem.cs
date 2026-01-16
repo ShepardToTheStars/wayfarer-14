@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Content.Client.Humanoid;
 using Content.Shared._CS.Body.Components;
 using Content.Shared.Humanoid;
-using Microsoft.CodeAnalysis.Elfie.Serialization;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Log;
