@@ -79,28 +79,43 @@ public sealed partial class ShuttleSystem
         }
     }
 
+    // Wayfarer start: Enable IFF if the console is detached
     private void OnIFFConsoleAnchor(EntityUid uid, IFFConsoleComponent component, ref AnchorStateChangedEvent args)
     {
-        // If we anchor / re-anchor then make sure flags up to date.
-        if (!args.Anchored ||
-            !TryComp(uid, out TransformComponent? xform) ||
-            !TryComp<IFFComponent>(xform.GridUid, out var iff))
+        // If there's no IFF component, disable the UI
+        if (!TryComp(uid, out TransformComponent? xform) || !TryComp(xform.GridUid, out IFFComponent? iff))
         {
-            _uiSystem.SetUiState(uid, IFFConsoleUiKey.Key, new IFFConsoleBoundUserInterfaceState()
-            {
-                AllowedFlags = component.AllowedFlags,
-                Flags = IFFFlags.None,
-            });
+            DisableUi(uid, component);
+            return;
         }
-        else
+
+        // If we're unanchoring, also disable the UI
+        if (!args.Anchored)
         {
-            _uiSystem.SetUiState(uid, IFFConsoleUiKey.Key, new IFFConsoleBoundUserInterfaceState()
-            {
-                AllowedFlags = component.AllowedFlags,
-                Flags = iff.Flags,
-            });
+            // Force IFF on
+            RemoveIFFFlag(xform.GridUid.Value, IFFFlags.HideLabel, iff);
+
+            DisableUi(uid, component);
+            return;
         }
+
+        // If we're anchoring, update the UI with the IFF flags
+        _uiSystem.SetUiState(uid, IFFConsoleUiKey.Key, new IFFConsoleBoundUserInterfaceState()
+        {
+            AllowedFlags = component.AllowedFlags,
+            Flags = iff.Flags,
+        });
     }
+
+    private void DisableUi(EntityUid uid, IFFConsoleComponent component)
+    {
+        _uiSystem.SetUiState(uid, IFFConsoleUiKey.Key, new IFFConsoleBoundUserInterfaceState()
+        {
+            AllowedFlags = component.AllowedFlags,
+            Flags = IFFFlags.None,
+        });
+    }
+    // Wayfarer end
 
     protected override void UpdateIFFInterfaces(EntityUid gridUid, IFFComponent component)
     {
