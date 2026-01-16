@@ -10,11 +10,19 @@ public sealed partial class ShuttleSystem
 {
     private void InitializeIFF()
     {
+        SubscribeLocalEvent<IFFComponent, ComponentStartup>(OnIFFStartup); // Wayfarer
         SubscribeLocalEvent<IFFConsoleComponent, AnchorStateChangedEvent>(OnIFFConsoleAnchor);
         SubscribeLocalEvent<IFFConsoleComponent, IFFShowIFFMessage>(OnIFFShow);
         SubscribeLocalEvent<IFFConsoleComponent, IFFShowVesselMessage>(OnIFFShowVessel);
         SubscribeLocalEvent<GridSplitEvent>(OnGridSplit);
     }
+
+    // Wayfarer start: Fix the IFF console not accurately reflecting its grid's flags when spawned on the grid
+    private void OnIFFStartup(EntityUid uid, IFFComponent component, ComponentStartup args)
+    {
+        UpdateIFFInterfaces(uid, component);
+    }
+    // Wayfarer end
 
     private void OnGridSplit(ref GridSplitEvent ev)
     {
