@@ -726,3 +726,12 @@ Entries:
   id: 6573
   time: '2026-01-17T22:44:10.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/257
+- author: drraccoony
+  changes:
+    - type: Tweak
+      message: Changed Med Implant Tracker PDA Program Look
+    - type: Fix
+      message: Fixed Med Implant Tracker honoring medimplant alert being off
+  id: 6574
+  time: '2026-01-17T22:59:38.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/253
