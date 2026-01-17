@@ -1,32 +1,31 @@
 - type: vessel
-  id: Qauata
+  id: Buckler
   parent: BaseVessel
-  name: CGP Qauata
-  description: A CGP Medical Ship that serves as second line support, performing Officer recovery and assistance.
-  price: 59930
+  name: CGP Buckler
+  description: A CGP Fighter, designed for short term missions and disabling targets as part of a larger fleet
+  price: 17375
   category: Small
   group: Security
-  access: Brigmedic
-  shuttlePath: /Maps/_WF/Shuttles/Cgp/qauata.yml
+  access: Security
+  shuttlePath: /Maps/_WF/Shuttles/Cgp/buckler.yml
   guidebookPage: Null
   class:
   - Pursuit
-  - Medical
+  - Fighter
   engine:
   - APU
-  - Plasma
 
 - type: gameMap
-  id: Qauata
-  mapName: 'CGP Qauata'
-  mapPath: /Maps/_WF/Shuttles/Cgp/qauata.yml
+  id: Buckler
+  mapName: 'CGP Buckler'
+  mapPath: /Maps/_WF/Shuttles/Cgp/buckler.yml
   minPlayers: 0
   stations:
-    Qauata:
+    Buckler:
       stationProto: StandardFrontierVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Qauata {1}'
+        mapNameTemplate: 'Buckler {1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'

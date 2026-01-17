@@ -36,6 +36,8 @@ namespace Content.Client.PDA
 
         private string _balance = Loc.GetString("comp-pda-ui-unknown"); // Frontier
         private string _shuttleDeed = Loc.GetString("comp-pda-ui-unknown"); // Frontier
+        private string _currentDate = Loc.GetString("comp-pda-ui-unknown"); // DeltaV - PDA date
+
 
         private TimeSpan? _shiftEndTime = null; // Absolute client RealTime when shift ends (calculated from server duration)
 
@@ -134,13 +136,20 @@ namespace Content.Client.PDA
             StationTimeButton.OnPressed += _ =>
             {
                 var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
-                _clipboard.SetText((stationTime.ToString("hh\\:mm\\:ss")));
+                _clipboard.SetText($"{stationTime.Days}d {stationTime.Hours:D2}h {stationTime.Minutes:D2}m {stationTime.Seconds:D2}s");
             };
 
             StationAlertLevelInstructionsButton.OnPressed += _ =>
             {
                 _clipboard.SetText(_instructions);
             };
+
+            // Begin DeltaV additions
+            CurrentDateButton.OnPressed += _ =>
+            {
+                _clipboard.SetText(_currentDate);
+            };
+            // End DeltaV additions
 
 
 
@@ -193,7 +202,7 @@ namespace Content.Client.PDA
             var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
 
             StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
-                ("time", stationTime.ToString("d\\:hh\\:mm\\:ss"))));
+                ("time", $"{stationTime.Days}d {stationTime.Hours:D2}h {stationTime.Minutes:D2}m {stationTime.Seconds:D2}s")));
 
             // Server sends duration remaining; calculate absolute end time using client's RealTime
             // This avoids clock synchronization issues between client and server
@@ -202,7 +211,7 @@ namespace Content.Client.PDA
                 _shiftEndTime = _gameTiming.RealTime + state.ShiftEndTime.Value;
                 var timeRemaining = state.ShiftEndTime.Value;
                 ShiftEndTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-shift-end-time",
-                    ("time", timeRemaining.ToString("d\\:hh\\:mm\\:ss"))));
+                    ("time", $"{timeRemaining.Days}d {timeRemaining.Hours:D2}h {timeRemaining.Minutes:D2}m {timeRemaining.Seconds:D2}s")));
                 ShiftEndTimeLabel.Visible = true;
             }
             else
@@ -247,6 +256,14 @@ namespace Content.Client.PDA
                 "comp-pda-ui-station-alert-level-instructions",
                 ("instructions", _instructions))
             );
+            // Begin DeltaV additions
+            if (state.PdaOwnerInfo.CurrentDate is { } curDate)
+                _currentDate = curDate.ToString("dd MMMM yyyy");
+                CurrentDateLabel.SetMarkup(Loc.GetString(
+                    "comp-pda-ui-current-date",
+                    ("date", _currentDate)
+                ));
+            // End DeltaV additions
 
             AddressLabel.Text = state.Address?.ToUpper() ?? " - ";
 
@@ -404,7 +421,7 @@ namespace Content.Client.PDA
             var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
 
             StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
-                ("time", stationTime.ToString("d\\:hh\\:mm\\:ss"))));
+                ("time", $"{stationTime.Days}d {stationTime.Hours:D2}h {stationTime.Minutes:D2}m {stationTime.Seconds:D2}s")));
 
             // Calculate and update remaining time until shift end in real-time
             if (_shiftEndTime.HasValue)
@@ -413,7 +430,7 @@ namespace Content.Client.PDA
                 if (timeRemaining > TimeSpan.Zero)
                 {
                     ShiftEndTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-shift-end-time",
-                        ("time", timeRemaining.ToString("d\\:hh\\:mm\\:ss"))));
+                        ("time", $"{timeRemaining.Days}d {timeRemaining.Hours:D2}h {timeRemaining.Minutes:D2}m {timeRemaining.Seconds:D2}s")));
                     ShiftEndTimeLabel.Visible = true;
                 }
                 else

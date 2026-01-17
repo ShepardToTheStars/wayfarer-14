@@ -598,3 +598,122 @@ Entries:
   id: 6557
   time: '2026-01-14T09:00:55.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/226
+- author: drraccoony
+  changes:
+    - type: Add
+      message: Added Bell Jingle Collar Module
+  id: 6558
+  time: '2026-01-15T00:25:22.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/232
+- author: Eillyrea
+  changes:
+    - type: Tweak
+      message: Rifle/Pistols/Energy/Hitscan guns do more damage
+    - type: Tweak
+      message: Shotguns shoot more pellets with more spread
+    - type: Tweak
+      message: eRevolver is no longer insanely OP
+  id: 6559
+  time: '2026-01-15T00:26:41.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/227
+- author: Eillyrea
+  changes:
+    - type: Add
+      message: CGP - Buckler (Small Fighter Ship)
+  id: 6560
+  time: '2026-01-15T00:31:38.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/229
+- author: drraccoony
+  changes:
+    - type: Tweak
+      message: Changed PDA shift duration from dd:hh:mm:ss to have labels.
+    - type: Tweak
+      message: Changed deaddrop printouts to show days in timestamp
+    - type: Tweak
+      message: Admin logging now has a prefix to better understand day the log is from
+  id: 6561
+  time: '2026-01-15T00:32:18.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/234
+- author: drraccoony
+  changes:
+    - type: Add
+      message: Added Clothing Lock Collar Module
+  id: 6562
+  time: '2026-01-15T01:27:10.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/233
+- author: Eillyrea
+  changes:
+    - type: Add
+      message: CGP - Qauata (Brigmedic Ship)
+  id: 6563
+  time: '2026-01-15T03:07:12.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/228
+- author: anpage
+  changes:
+    - type: Tweak
+      message: Changed icons and logo
+  id: 6564
+  time: '2026-01-15T03:09:04.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/235
+- author: drraccoony
+  changes:
+    - type: Add
+      message: Added autopilot
+  id: 6565
+  time: '2026-01-15T03:47:41.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/236
+- author: drraccoony
+  changes:
+    - type: Fix
+      message: Fixed Subtle LOOC being properly hidden from ghosts.
+  id: 6566
+  time: '2026-01-15T03:53:37.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/238
+- author: drraccoony
+  changes:
+    - type: Tweak
+      message: Changed character description default from 512 to 2048
+  id: 6567
+  time: '2026-01-16T04:16:35.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/242
+- author: anpage
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the random IC chat text colors possibly not being bright enough to
+        read
+  id: 6568
+  time: '2026-01-16T05:57:53.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/243
+- author: anpage
+  changes:
+    - type: Fix
+      message: >-
+        Fixed IFF consoles included with shuttles not correctly displaying the
+        current on/off status
+    - type: Tweak
+      message: Changed IFF consoles to force IFF on if detached from a shuttle
+  id: 6569
+  time: '2026-01-16T06:06:07.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/244
+- author: Eillyrea
+  changes:
+    - type: Remove
+      message: Removed the Alive Icon from Medhud
+  id: 6570
+  time: '2026-01-16T21:16:33.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/250
+- author: Eillyrea
+  changes:
+    - type: Add
+      message: PDAs have a date on them
+  id: 6571
+  time: '2026-01-16T21:16:46.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/251
+- author: Eillyrea
+  changes:
+    - type: Tweak
+      message: Defibrillator Cabinets now recharge the battery within!
+  id: 6572
+  time: '2026-01-16T21:18:43.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/249
