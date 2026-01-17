@@ -71,6 +71,6 @@
   - type: SolutionContainerManager
     solutions:
       drainBuffer:
-        maxVol: 200
+        maxVol: 100
       tank:
-        maxVol: 500
+        maxVol: 100
