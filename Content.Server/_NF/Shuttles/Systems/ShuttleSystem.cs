@@ -31,7 +31,7 @@ public sealed partial class ShuttleSystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly IPlayerManager _players = default!;
     [Dependency] private readonly PopupSystem _popupSystem = null!;
-    [Dependency] private readonly AutopilotSystem _autopilot = default!;
+    [Dependency] private readonly AutopilotSystem _autopilot = default!; // Wayfarer: Autopilot
     public TimeSpan BrakeDelay = TimeSpan.FromSeconds(10);
     public TimeSpan NextBrakeCheck = TimeSpan.Zero;
 
