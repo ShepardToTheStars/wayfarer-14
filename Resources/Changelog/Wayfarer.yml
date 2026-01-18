@@ -744,3 +744,22 @@ Entries:
   id: 6575
   time: '2026-01-17T23:31:57.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/254
+- author: anpage
+  changes:
+    - type: Tweak
+      message: Overhauled the autopilot behavior to hopefully be less chaotic
+    - type: Tweak
+      message: >-
+        Changed the autopilot to deliberately switch to "Drive" mode when
+        engaged
+    - type: Fix
+      message: >-
+        Fixed the shuttle UI not switching to "Park" mode when autopilot reaches
+        its destination
+    - type: Fix
+      message: >-
+        Fixed the autopilot moving the shuttle very slowly if the last pilot
+        input was the brake
+  id: 6576
+  time: '2026-01-18T02:24:42.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/260
