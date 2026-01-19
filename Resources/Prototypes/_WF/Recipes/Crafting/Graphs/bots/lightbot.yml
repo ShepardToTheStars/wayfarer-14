@@ -8,9 +8,9 @@
       steps:
       - tag: LightReplacer
         icon:
-          sprite: Objects/Tools/light_replacer.rsi
+          sprite: Objects/Specific/Janitorial/light_replacer.rsi
           state: icon
-        name: light replacer
+        name: construction-graph-tag-light-replacer
         doAfter: 2
       - tag: ProximitySensor
         icon:
