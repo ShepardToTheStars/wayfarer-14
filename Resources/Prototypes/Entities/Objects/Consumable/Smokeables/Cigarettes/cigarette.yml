@@ -82,7 +82,7 @@
           - ReagentId: Nicotine
             Quantity: 10
           - ReagentId: Ichor
-            Quantity: 20
+            Quantity: 10
 
 - type: entity
   id: CigaretteOmnizine
