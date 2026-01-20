@@ -793,3 +793,10 @@ Entries:
   id: 6580
   time: '2026-01-20T18:15:03.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/269
+- author: ShepardToTheStars
+  changes:
+    - type: Tweak
+      message: Most NSFD references have been renamed to CGP.
+  id: 6581
+  time: '2026-01-20T18:57:33.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/225
