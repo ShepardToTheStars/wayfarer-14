@@ -47,6 +47,12 @@
         Piercing: 1
   - type: Speech
     speechSounds: Alto
+    allowedEmotes:
+    - Hiss
+    - Meow
+    - Mew
+    - Growl
+    - Purr
   - type: DamageOnHighSpeedImpact # Landing on all fours!
     damage:
       types:
@@ -81,10 +87,10 @@
     currentTemperature: 312  # Body temperature of cat
     coldDamage:
       types:
-        Cold: 0.65
+        Cold: 0.02
     heatDamage:
       types:
-        Heat: 3
+        Heat: 2
   - type: ThermalRegulator
     normalBodyTemperature: 312
   # CS - tweaks and edits
