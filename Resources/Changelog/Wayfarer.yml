@@ -786,3 +786,10 @@ Entries:
   id: 6579
   time: '2026-01-20T18:06:51.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/275
+- author: drraccoony
+  changes:
+    - type: Fix
+      message: Fixed nanochat missing from some PDAs
+  id: 6580
+  time: '2026-01-20T18:15:03.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/269
