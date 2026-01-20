@@ -825,3 +825,12 @@ Entries:
   id: 6584
   time: '2026-01-20T23:31:52.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/280
+- author: drraccoony
+  changes:
+    - type: Add
+      message: Added 'Look At' Verb
+    - type: Tweak
+      message: Changed so mobs can be interacted with (Mothroaches, dragons, etc)
+  id: 6585
+  time: '2026-01-20T23:32:05.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/287
