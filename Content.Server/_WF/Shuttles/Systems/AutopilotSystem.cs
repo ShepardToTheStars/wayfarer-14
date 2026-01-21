@@ -107,10 +107,7 @@ public sealed class AutopilotSystem : EntitySystem
                 ApplyBraking(uid, shuttle, physics, xform, frameTime);
 
                 // Park the shuttle by setting it to Anchor mode (same as UI "Park" button)
-                const float AnchorDampingStrength = 2.5f;
-                shuttle.BodyModifier = AnchorDampingStrength;
-                if (shuttle.DampingModifier != 0)
-                    shuttle.DampingModifier = shuttle.BodyModifier;
+                shuttle.DampingModifier = ShuttleSystem.AnchorDampingStrength;
                 shuttle.EBrakeActive = false;
 
                 // Refresh shuttle consoles so pilots see the mode change to "Park"
@@ -695,10 +692,7 @@ public sealed class AutopilotSystem : EntitySystem
         // Switch to "Drive" mode (Dampen) - release any parking brake or anchor
         if (TryComp<ShuttleComponent>(shuttleUid, out var shuttle))
         {
-            const float DampenDampingStrength = 0.25f;
-            shuttle.BodyModifier = DampenDampingStrength;
-            if (shuttle.DampingModifier != 0)
-                shuttle.DampingModifier = shuttle.BodyModifier;
+            shuttle.DampingModifier = ShuttleSystem.DampenDampingStrength;
             shuttle.EBrakeActive = false;
 
             // Refresh shuttle consoles so pilots see the mode change to "Drive"
@@ -716,8 +710,6 @@ public sealed class AutopilotSystem : EntitySystem
             }
         }
     }
-
-    private const float DampenDampingStrength = 0.25f;
 
     /// <summary>
     /// Disable autopilot
@@ -748,9 +740,7 @@ public sealed class AutopilotSystem : EntitySystem
             return;
 
         // Set to Drive (Dampen) mode
-        shuttle.BodyModifier = DampenDampingStrength;
-        if (shuttle.DampingModifier != 0)
-            shuttle.DampingModifier = shuttle.BodyModifier;
+        shuttle.DampingModifier = ShuttleSystem.DampenDampingStrength;
         shuttle.EBrakeActive = false;
 
         // Refresh shuttle consoles so pilots see the mode change
