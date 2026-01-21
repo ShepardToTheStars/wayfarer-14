@@ -61,7 +61,7 @@ public sealed class AutopilotSystem : EntitySystem
         }
 
         DisableAutopilot(gridUid.Value);
-        SendShuttleMessage(gridUid.Value, "Autopilot server disconnected - autopilot disabled");
+        SendShuttleMessage(gridUid.Value, "Autopilot: Server disconnected - autopilot disabled");
     }
 
     public override void Update(float frameTime)
@@ -86,7 +86,7 @@ public sealed class AutopilotSystem : EntitySystem
             if (!HasPoweredAutopilotServer(uid))
             {
                 DisableAutopilot(uid);
-                SendShuttleMessage(uid, "Autopilot server lost power - autopilot disabled");
+                SendShuttleMessage(uid, "Autopilot: Server lost power - autopilot disabled");
                 continue;
             }
 
@@ -99,8 +99,9 @@ public sealed class AutopilotSystem : EntitySystem
 
             if (distance <= autopilot.ArrivalDistance)
             {
+                var destinationName = autopilot.DestinationName ?? "destination";
                 autopilot.Enabled = false;
-                SendShuttleMessage(uid, "Autopilot: Destination reached - Parking");
+                SendShuttleMessage(uid, $"Autopilot: {destinationName} reached - Parking");
 
                 // Apply brakes
                 ApplyBraking(uid, shuttle, physics, xform, frameTime);
@@ -648,7 +649,7 @@ public sealed class AutopilotSystem : EntitySystem
     /// <summary>
     /// Enable autopilot
     /// </summary>
-    public void EnableAutopilot(EntityUid shuttleUid, MapCoordinates targetCoordinates)
+    public void EnableAutopilot(EntityUid shuttleUid, MapCoordinates targetCoordinates, string? destinationName = null)
     {
         var autopilot = EnsureComp<AutopilotComponent>(shuttleUid);
 
@@ -659,6 +660,7 @@ public sealed class AutopilotSystem : EntitySystem
 
         autopilot.Enabled = true;
         autopilot.TargetCoordinates = targetCoordinates;
+        autopilot.DestinationName = destinationName;
         autopilot.ReportedObstacles.Clear(); // Reset obstacle tracking for new journey
 
         // Switch to "Drive" mode (Dampen) - release any parking brake or anchor
@@ -684,8 +686,6 @@ public sealed class AutopilotSystem : EntitySystem
                 pilot.HeldButtons = ShuttleButtons.None;
             }
         }
-
-        SendShuttleMessage(shuttleUid, "Autopilot engaged");
     }
 
     /// <summary>
@@ -702,7 +702,7 @@ public sealed class AutopilotSystem : EntitySystem
 
         autopilot.Enabled = false;
         autopilot.TargetCoordinates = null;
-        SendShuttleMessage(shuttleUid, "Autopilot disabled");
+        SendShuttleMessage(shuttleUid, "Autopilot: Disabled");
     }
 
     /// <summary>
