@@ -878,3 +878,10 @@ Entries:
   id: 6591
   time: '2026-01-21T03:23:29.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/281
+- author: drraccoony
+  changes:
+    - type: Add
+      message: Added Lightbot
+  id: 6592
+  time: '2026-01-21T03:47:55.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/266
