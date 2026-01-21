@@ -120,7 +120,7 @@ public sealed class AutopilotSystem : EntitySystem
             }
 
             // Calculate steering force using Reynolds steering behaviors
-            var maxSpeed = shuttle.BaseMaxLinearVelocity * autopilot.SpeedMultiplier;
+            var maxSpeed = CalculateMaxSpeed(shuttle, physics.LinearVelocity) * autopilot.SpeedMultiplier;
             var currentVelocity = physics.LinearVelocity;
 
             // Obstacle avoidance: check for obstacles first (highest priority)
@@ -181,6 +181,35 @@ public sealed class AutopilotSystem : EntitySystem
             var facingDirection = currentVelocity.LengthSquared() > 1f ? Vector2.Normalize(currentVelocity) : (distance > 0.01f ? toTarget / distance : Vector2.UnitY);
             RotateTowardsTarget(uid, shuttle, xform, physics, facingDirection, frameTime);
         }
+    }
+
+    /// <summary>
+    /// Calculate the maximum speed for the shuttle considering thruster upgrades.
+    /// Uses the same formula as MoverController.ObtainMaxVel to account for upgraded thrusters.
+    /// </summary>
+    private float CalculateMaxSpeed(ShuttleComponent shuttle, Vector2 velocity)
+    {
+        if (velocity.LengthSquared() < 0.01f)
+            return shuttle.BaseMaxLinearVelocity;
+
+        var vel = Vector2.Normalize(velocity);
+        
+        var horizIndex = vel.X > 0 ? 1 : 3; // east else west
+        var vertIndex = vel.Y > 0 ? 2 : 0; // north else south
+
+        // Calculate the velocity scaling based on thrust ratios
+        // This accounts for upgraded thrusters having more thrust than base
+        var horizComp = vel.X != 0 && shuttle.LinearThrust[horizIndex] > 0
+            ? MathF.Pow(Vector2.Dot(vel, new Vector2(shuttle.BaseLinearThrust[horizIndex] / shuttle.LinearThrust[horizIndex], 0f)), 2)
+            : 0;
+        var vertComp = vel.Y != 0 && shuttle.LinearThrust[vertIndex] > 0
+            ? MathF.Pow(Vector2.Dot(vel, new Vector2(0f, shuttle.BaseLinearThrust[vertIndex] / shuttle.LinearThrust[vertIndex])), 2)
+            : 0;
+
+        if (horizComp + vertComp < 0.0001f)
+            return shuttle.BaseMaxLinearVelocity;
+
+        return shuttle.BaseMaxLinearVelocity * vel.Length() * MathF.ReciprocalSqrtEstimate(horizComp + vertComp);
     }
 
     /// <summary>
@@ -401,7 +430,7 @@ public sealed class AutopilotSystem : EntitySystem
 
         // Calculate target velocity based on threat level
         // Higher threat = lower allowed speed
-        var baseMaxVelocity = shuttle.BaseMaxLinearVelocity * 0.6f;
+        var baseMaxVelocity = CalculateMaxSpeed(shuttle, physics.LinearVelocity) * 0.6f;
         var threatSpeedMultiplier = 1f - threatLevel * 0.9f; // At max threat, only 10% speed allowed
         var targetMaxVelocity = baseMaxVelocity * threatSpeedMultiplier;
 
