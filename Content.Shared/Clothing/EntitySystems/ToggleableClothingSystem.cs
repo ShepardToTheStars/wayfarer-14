@@ -162,12 +162,12 @@ public sealed partial class ToggleableClothingSystem : EntitySystem // Wayfarer 
         // If the attached clothing is not currently in the container, this just assumes that it is currently equipped.
         // This should maybe double check that the entity currently in the slot is actually the attached clothing, but
         // if its not, then something else has gone wrong already...
-        var wasToggleableUnequipped = false; // Wayfarer - Allow hats under toggleable clothing 
+        var wasAttachedUnequipped = false; // Wayfarer - Allow hats under toggleable clothing 
         if (component.Container != null && component.Container.ContainedEntity == null && component.ClothingUid != null)
-            wasToggleableUnequipped = _inventorySystem.TryUnequip(args.Equipee, component.Slot, force: true, triggerHandContact: true);
+            wasAttachedUnequipped = _inventorySystem.TryUnequip(args.Equipee, component.Slot, force: true, triggerHandContact: true);
 
         // Wayfarer - If the toggleable clothing was uneqipped, try to equip whats in the under clothing container
-        if (wasToggleableUnequipped && !TryEquipUnderClothing(args.Equipee, component))
+        if (wasAttachedUnequipped && !TryEquipUnderClothing(args.Equipee, component))
             TryDropUnderClothing(component);
     }
 
@@ -249,10 +249,10 @@ public sealed partial class ToggleableClothingSystem : EntitySystem // Wayfarer 
 
         var parent = Transform(target).ParentUid;
         // Begin Wayfarer - Allow hats under toggleable clothing!
-        var wasToggleableUnequipped = false; // We want to track if the toggleable item was unequipped, assume false for now.
+        var wasAttachedUnequipped = false; // We want to track if the toggleable item was unequipped, assume false for now.
 
         if (component.Container.ContainedEntity == null)
-            wasToggleableUnequipped = _inventorySystem.TryUnequip(user, parent, component.Slot, force: true);
+            wasAttachedUnequipped = _inventorySystem.TryUnequip(user, parent, component.Slot, force: true);
 
         else
         {
@@ -268,7 +268,7 @@ public sealed partial class ToggleableClothingSystem : EntitySystem // Wayfarer 
         }
 
         // If the toggleable clothing was uneqipped, try to equip whats in the under clothing container
-        if (wasToggleableUnequipped && !TryEquipUnderClothing(user, parent, component))
+        if (wasAttachedUnequipped && !TryEquipUnderClothing(user, parent, component))
             TryDropUnderClothing(component);
         // END Wayfarer
     }
