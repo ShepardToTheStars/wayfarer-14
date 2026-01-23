@@ -261,6 +261,7 @@ public sealed partial class ToggleableClothingSystem : EntitySystem // Wayfarer 
             {
                 _popupSystem.PopupClient(Loc.GetString("toggleable-clothing-remove-first", ("entity", existing)),
                     user, user);
+                return;
             }
 
             _inventorySystem.TryEquip(user, parent, component.ClothingUid.Value, component.Slot, triggerHandContact: true);
