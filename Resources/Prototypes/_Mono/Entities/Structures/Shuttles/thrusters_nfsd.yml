@@ -1,0 +1,19 @@
+- type: entity
+  id: ThrusterLargeNfsd
+  parent: ThrusterLarge
+  suffix: light blue
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Shuttles/thrusternfsd_large.rsi
+    layers:
+    - state: base
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 1
