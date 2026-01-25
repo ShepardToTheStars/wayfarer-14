@@ -963,3 +963,10 @@ Entries:
   id: 6601
   time: '2026-01-25T18:18:43.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/355
+- author: Eillyrea
+  changes:
+    - type: Tweak
+      message: Final renaming to CGP roles (I hope)
+  id: 6602
+  time: '2026-01-25T18:20:07.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/356
