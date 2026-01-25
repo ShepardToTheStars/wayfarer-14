@@ -926,3 +926,10 @@ Entries:
   id: 6596
   time: '2026-01-24T02:51:04.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/349
+- author: Eillyrea
+  changes:
+    - type: Tweak
+      message: RTG Energy output 10 -> 6, dRTG Energy output 10 -> 2
+  id: 6597
+  time: '2026-01-25T18:11:37.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/352
