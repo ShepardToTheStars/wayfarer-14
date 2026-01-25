@@ -933,3 +933,10 @@ Entries:
   id: 6597
   time: '2026-01-25T18:11:37.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/352
+- author: Eillyrea
+  changes:
+    - type: Fix
+      message: Can insert shotguns into shotgun cabinet again
+  id: 6598
+  time: '2026-01-25T18:12:22.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/353
