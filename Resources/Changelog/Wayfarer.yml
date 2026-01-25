@@ -956,3 +956,10 @@ Entries:
   id: 6600
   time: '2026-01-25T18:18:09.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/341
+- author: Eillyrea
+  changes:
+    - type: Add
+      message: Hotkeys for Smart Equip Pockets / Suit Storage
+  id: 6601
+  time: '2026-01-25T18:18:43.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/355
