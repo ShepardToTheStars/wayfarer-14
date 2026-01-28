@@ -49,6 +49,9 @@ ui-options-mention-sound = Play Mention Sound
 ui-options-looc-sound = Play LOOC Notification Sound
 ui-options-subtle-sound = Play Subtle Notification Sound
 ui-options-volume-label = Volume
+## Mono Audio menu
+
+ui-options-combat-music = Combat Music
 
 ## Graphics menu
 
