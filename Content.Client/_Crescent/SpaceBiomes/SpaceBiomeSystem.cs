@@ -57,10 +57,11 @@ public sealed class SpaceBiomeSystem : EntitySystem
 
         if (newGrid != _cachedGrid) //if true, we have changed grids since last update
         {
-            _cachedGrid = newGrid;
+            if (newGrid != null) // WF - Don't save the (lack of) grid if its space
+                _cachedGrid = newGrid;
+
             var message = new PlayerParentChangedMessage(newGrid); //if this is null it notifies that we're in space
             RaiseLocalEvent(localPlayerUid, ref message, true);
-
         }
         // 2. grab the biome & check if its different than the cached biome from last update
         SpaceBiomeSourceComponent? newSource = null;
