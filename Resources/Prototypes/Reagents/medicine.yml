@@ -848,6 +848,12 @@
       effects:
       - !type:SatiateHunger
         factor: -1
+      #- !type:EvenHealthChange # WF - Kill Omni
+      #  damage:
+      #    Burn: -2
+      #    Toxin: -2
+      #    Airloss: -2
+      #    Brute: -2
 
 - type: reagent
   id: Ultravasculine
