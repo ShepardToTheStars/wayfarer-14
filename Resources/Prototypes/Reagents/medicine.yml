@@ -819,6 +819,7 @@
             Heat: -0.33
             Shock: -0.33
             Cold: -0.33
+            Radiation: -0.05 # WF - Prevent annoying medibot spam when they see damage but can't heal radiation
 
 - type: reagent
   id: Lipozine
