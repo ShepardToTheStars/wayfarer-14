@@ -117,15 +117,6 @@
     identifyHidden: true
 
 - type: trait
-  id: BionicLegs
-  name: trait-bionic-legs-name
-  description: trait-bionic-legs-desc
-  category: Physical
-  cost: 2
-  components:
-  - type: BionicLegs
-
-- type: trait
   id: OsteogenesisImperfecta
   name: trait-osteogenesis-imperfecta-name
   description: trait-osteogenesis-imperfecta-desc
@@ -170,25 +161,6 @@
   components:
     - type: Voracious
       consumptionSpeedMultiplier: 2.0
-
-- type: trait
-  id: BionicSpinarette
-  name: trait-bionic-spinarette-name
-  description: trait-bionic-spinarette-desc
-  category: Physical
-  cost: 2
-  speciesBlacklist:
-    - IPC
-    - Arachnid
-  blacklist:
-    components:
-    - BorgChassis
-  components:
-    - type: Sericulture
-      action: ActionSericulture
-      productionLength: 2
-      entityProduced: MaterialWebSilk1
-      hungerCost: 4
 
 - type: trait
   id: Feeble
@@ -262,24 +234,6 @@
       "90": 0.70
 
 - type: trait
-  id: DermalArmor
-  name: trait-dermal-armor-name
-  description: trait-dermal-armor-desc
-  category: Physical
-  cost: 6
-  components:
-  - type: DamageProtectionBuff
-    modifiers:
-      dermal:
-        id: DermalArmorTrait
-        coefficients:
-          Shock: 1.25
-        flatReductions:
-          Blunt: 1.5
-          Slash: 1.5
-          Piercing: 1.5
-
-- type: trait
   id: Ironman
   name: trait-ironman-name
   description: trait-ironman-desc
@@ -307,7 +261,6 @@
   cost: 1
   mutuallyExclusiveTraits:
   - LightweightDrunk
-  - LiquorLifeline
   speciesBlacklist:
   - Dwarf
   - IPC
@@ -317,19 +270,3 @@
   components:
   - type: AlcoholTolerance
     visualScaleMultiplier: 0.35
-
-- type: trait
-  id: PlateletFactories
-  name: trait-platelet-factories-name
-  description: trait-platelet-factories-desc
-  category: Physical
-  cost: 10
-  mutuallyExclusiveTraits:
-  - Hemophilia
-  speciesBlacklist:
-  - IPC
-  blacklist:
-    components:
-    - BorgChassis
-  components:
-  - type: PlateletFactories

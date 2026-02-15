@@ -45,7 +45,7 @@ public sealed partial class ThievingComponent : Component
     /// <summary>
     /// Mono: If true, this entity can identify hidden strip slots.
     /// </summary>
-    [AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool IdentifyHidden;
 }
 

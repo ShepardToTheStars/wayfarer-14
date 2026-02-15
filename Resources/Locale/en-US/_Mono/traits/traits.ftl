@@ -31,10 +31,6 @@ trait-will-to-die-desc = You have an unusually weak "will to live", and will suc
 trait-thieving-name = Thieving
 trait-thieving-desc = You are deft with your hands, and talented at convincing people of their belongings. You can identify pocketed items, steal them quieter, and steal ~33% faster.
 
-trait-bionic-legs-name = Bionic Legs
-trait-bionic-legs-desc = One or more of your limbs have been replaced with an expensive, state of the art bionic. It could be either one made of highly realistic synthflesh,
-     or a more obvious metal limb. This limb provides enhanced speed to it's user, allowing you to run away from situations faster or get to a place faster.
-
 trait-osteogenesis-imperfecta-name = Osteogenesis Imperfecta
 trait-osteogenesis-imperfecta-desc = Also known as "brittle bone disease", people with this genetic disorder have bones that are easily broken, often simply by moving. This trait reduces your threshold for critical injury by 50 points.
 
@@ -43,9 +39,6 @@ trait-hemophilia-desc = Your body's ability to form blood clots is impaired. You
 
 trait-voracious-name = Voracious
 trait-voracious-desc = Nothing gets between you and your food. Your endless consumption of food and drinks is twice as fast.
-
-trait-bionic-spinarette-name = Bionic Spinarette
-trait-bionic-spinarette-desc = This vatgrown organ--trademarked and patented by the Quark Corporation--is marketed as a highly utilitarian enhancement, and sold in clinics all across known space. It consists of a module that is traditionally implanted right below the wrist, which absorbs bodily lipids to convert into all-natural silk. A small opening in the palm allows the user to 'spin' this thread.
 
 trait-feeble-name = Feeble
 trait-feeble-desc = Your body responds poorly to injuries, making damage affect your movement more severely. For most species, this trait causes you to move 30% slower at 45 damage, and 54% slower at 65 damage.
@@ -62,9 +55,6 @@ trait-striking-calluses-desc = An iconic enhancement from the world of cyber-enh
 trait-steadfast-name = Steadfast
 trait-steadfast-desc = When others would buckle from the weight of your injuries, you still march forward unrelentingly. For most species, this reduces your movement slow: 25% at 60 damage becomes 17% at 70 damage, and 45% at 80 damage becomes 30% at 90 damage.
 
-trait-dermal-armor-name = Dermal Armor
-trait-dermal-armor-desc = Your skin has been replaced with a flexible, yet sturdy, hard-polymer shell wrapped in a layer of synthetic flesh. Provides 1.5 flat reduction to Blunt, Slash, and Piercing damage, but you take 25% more Shock damage.
-
 trait-ironman-name = Ironman
 trait-ironman-desc = You live strictly on hard cash. You can't withdraw from your bank account, but you start the shift with extra credits in hand.
 
@@ -73,6 +63,3 @@ trait-temperature-tolerance-desc = You have a notable tolerance for lower temper
 
 trait-alcohol-tolerance-name = Alcohol Tolerance
 trait-alcohol-tolerance-desc = Your body shrugs off the visual effects of booze. Drinks blur your vision far less, but this does not affect alcohol poisoning or how drunk you become.
-
-trait-platelet-factories-name = Platelet Factories
-trait-platelet-factories-desc = Your body has been augmented with a series of bio-tailored organs that enhance long-term survivability. These organs attempt to keep you alive even in the face of advanced trauma, all the way up until—but not including—death. Your natural healing slowly repairs any damage type, including exotic injuries like radiation exposure or cellular damage.
