@@ -73,7 +73,6 @@
       289: 0.9
       275: 0.8
       250: 0.7
-  - type: FluffyWhitelist # Frontier
   - type: Sprite # sprite again because we want different layer ordering
     noRot: true
     drawdepth: Mobs
